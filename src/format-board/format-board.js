@@ -2,12 +2,14 @@ import formatBoardAsGrid from './format-board-as-grid';
 import formatBoardAsFen from './format-board-as-fen';
 
 export default (format, board) => {
-  switch (format) {
-    case '--grid':
-      return formatBoardAsGrid(board);
-    case '--fen':
-      return formatBoardAsFen(board);
-    default:
-      return '';
+  if (format === '--grid') {
+    return formatBoardAsGrid(board);
   }
+
+  if (format === '--fen') {
+    return formatBoardAsFen(board);
+  }
+
+  console.log('how??');
+  return '(╯°□°）╯︵ ┻━┻';
 };

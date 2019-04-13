@@ -30,3 +30,11 @@ test('can format an empty board as a fen', t => {
 
   t.is(formattedBoard, '8/8/8/8/8/8/8/8 w - - 0 1');
 });
+
+test('can format an empty board as a table flip', t => {
+  const formattedBoard = formatBoard(
+    'huh',
+    createChessboard('8/8/8/8/8/8/8/8')
+  );
+  t.is(formattedBoard, '(╯°□°）╯︵ ┻━┻');
+});
