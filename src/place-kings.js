@@ -7,30 +7,27 @@ const getEmptySquares = board =>
     []
   );
 
-const getRandomSquare = (getRandomNumber, emptySquares) => {
-  return emptySquares[getRandomNumber(emptySquares.length)];
-};
+const placePieceOnEmptySquare = (chooseEmptySquare, piece, board) => {
+  const placePiece = square => {
+    const newBoard = [...board];
+    newBoard[square] = piece;
+    return newBoard;
+  };
 
-const placePiece = (board, square, piece) => {
-  const newBoard = [...board];
-  newBoard[square] = piece;
-  return newBoard;
-};
-
-const randomPlacePiece = (getRandomNumber, piece, board) => {
   return flow(
     getEmptySquares,
-    emptySquares => getRandomSquare(getRandomNumber, emptySquares),
-    square => placePiece(board, square, piece)
+    chooseEmptySquare,
+    placePiece
   )(board);
 };
 
-export default (getRandomNumber, board) => {
-  const placeRandomWhiteKing = partial(randomPlacePiece, getRandomNumber, 'K');
-  const placeRandomBlackKing = partial(randomPlacePiece, getRandomNumber, 'k');
+export default (chooseEmptySquare, board) => {
+  const placePiece = partial(placePieceOnEmptySquare, chooseEmptySquare);
+  const placeWhiteKing = partial(placePiece, 'K');
+  const placeBlackKing = partial(placePiece, 'k');
 
   return flow(
-    placeRandomWhiteKing,
-    placeRandomBlackKing
+    placeWhiteKing,
+    placeBlackKing
   )(board);
 };
