@@ -1,5 +1,6 @@
 import test from 'ava';
-import generateChessboard from './generate-chessboard';
+import createBoard from './create-board';
+import populateBoard from './populate-board';
 
 const chooseTheMaximumNumberOfPieces = numberOfPiecesChoices =>
   Math.max(...numberOfPiecesChoices);
@@ -13,14 +14,20 @@ const getPieceCount = board =>
   }, {});
 
 test('should generate a board with exactly one white and one black king', t => {
-  const board = generateChessboard(chooseTheMaximumNumberOfPieces);
+  const board = populateBoard(
+    chooseTheMaximumNumberOfPieces,
+    createBoard('8/8/8/8/8/8/8/8')
+  );
 
   t.is(board.filter(x => x === 'K').length, 1);
   t.is(board.filter(x => x === 'k').length, 1);
 });
 
 test('should generate a board with the maximum of each piece of each color', t => {
-  const board = generateChessboard(chooseTheMaximumNumberOfPieces);
+  const board = populateBoard(
+    chooseTheMaximumNumberOfPieces,
+    createBoard('8/8/8/8/8/8/8/8')
+  );
 
   t.deepEqual(getPieceCount(board), {
     '.': 32,
@@ -40,7 +47,10 @@ test('should generate a board with the maximum of each piece of each color', t =
 });
 
 test('should generate a board with the minimum of each piece of each color', t => {
-  const board = generateChessboard(chooseTheMinimumNumberOfPieces);
+  const board = populateBoard(
+    chooseTheMinimumNumberOfPieces,
+    createBoard('8/8/8/8/8/8/8/8')
+  );
 
   t.deepEqual(getPieceCount(board), {
     '.': 62,
@@ -50,8 +60,9 @@ test('should generate a board with the minimum of each piece of each color', t =
 });
 
 test('should generate a board with the 1 of each piece of each color', t => {
-  const board = generateChessboard(numberOfPiecesChoices =>
-    numberOfPiecesChoices.find(x => x === 1)
+  const board = populateBoard(
+    numberOfPiecesChoices => numberOfPiecesChoices.find(x => x === 1),
+    createBoard('8/8/8/8/8/8/8/8')
   );
 
   t.deepEqual(getPieceCount(board), {

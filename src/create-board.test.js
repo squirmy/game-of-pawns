@@ -1,8 +1,8 @@
 import test from 'ava';
-import createChessboard from './create-chessboard';
+import createBoard from './create-board';
 
 test('should create an empty chessboard', t => {
-  const chessboard = createChessboard('8/8/8/8/8/8/8/8');
+  const chessboard = createBoard('8/8/8/8/8/8/8/8');
 
   // prettier-ignore
   t.deepEqual(chessboard, [
@@ -18,9 +18,7 @@ test('should create an empty chessboard', t => {
 });
 
 test('should create a chessboard in the starting position', t => {
-  const chessboard = createChessboard(
-    'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR'
-  );
+  const chessboard = createBoard('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR');
 
   // prettier-ignore
   t.deepEqual(chessboard, [
@@ -36,7 +34,7 @@ test('should create a chessboard in the starting position', t => {
 });
 
 test('should create a chessboard with a partially filled row', t => {
-  const chessboard = createChessboard('8/1p2P3/8/8/8/8/8/8');
+  const chessboard = createBoard('8/1p2P3/8/8/8/8/8/8');
 
   // prettier-ignore
   t.deepEqual(chessboard, [

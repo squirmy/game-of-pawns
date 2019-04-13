@@ -1,10 +1,10 @@
 import { EOL } from 'os';
 import test from 'ava';
-import createChessboard from '../create-chessboard';
+import createBoard from '../create-board';
 import formatBoardAsGrid from './format-board-as-grid';
 
 test('can format an empty board as a grid', t => {
-  const grid = formatBoardAsGrid(createChessboard('8/8/8/8/8/8/8/8'));
+  const grid = formatBoardAsGrid(createBoard('8/8/8/8/8/8/8/8'));
 
   t.is(
     grid,
@@ -21,7 +21,7 @@ test('can format an empty board as a grid', t => {
 
 test('can format a chessboard in the starting position as a grid', t => {
   const grid = formatBoardAsGrid(
-    createChessboard('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR')
+    createBoard('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR')
   );
 
   t.is(

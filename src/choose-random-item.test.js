@@ -1,5 +1,5 @@
 import test from 'ava';
-import chooseARandomItem from './choose-a-random-item';
+import chooseARandomItem from './choose-random-item';
 
 test('should choose an item from the supplied list (one item)', t => {
   t.is(chooseARandomItem([1]), 1);
