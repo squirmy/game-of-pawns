@@ -4,6 +4,7 @@ import chooseARandomSquare from './choose-a-random-item';
 import placePiece from './place-piece/place-piece';
 
 const placePieceRandomly = partial(placePiece, chooseARandomSquare);
+const placeOne = piece => times(1, () => partial(placePieceRandomly, piece));
 
 export default chooseNumberOfPieces => {
   const placeN = (max, piece) =>
@@ -11,9 +12,7 @@ export default chooseNumberOfPieces => {
       partial(placePieceRandomly, piece)
     );
 
-  const placeOne = piece => times(1, () => partial(placePieceRandomly, piece));
-
-  const placePieces = flow(
+  return flow(
     shuffle(
       [
         placeOne('K'),
@@ -30,7 +29,5 @@ export default chooseNumberOfPieces => {
         placeN(2, 'b')
       ].flatMap(x => x)
     )
-  );
-
-  return placePieces(createChessboard('8/8/8/8/8/8/8/8'));
+  )(createChessboard('8/8/8/8/8/8/8/8'));
 };
