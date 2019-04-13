@@ -10,6 +10,5 @@ export default (format, board) => {
     return formatBoardAsFen(board);
   }
 
-  console.log('how??');
   return '(╯°□°）╯︵ ┻━┻';
 };
