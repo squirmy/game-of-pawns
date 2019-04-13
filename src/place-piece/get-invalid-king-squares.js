@@ -1,24 +1,16 @@
-const invalidForNonEdge = [-9, -8, -7, -1, 0, 1, 7, 8, 9];
-const createEdgeHandler = (isOnEdge, invalidEdgePositions) => (
-  square,
-  invalidPositions
-) => {
-  return isOnEdge(square)
-    ? invalidEdgePositions.filter(x => new Set(invalidPositions).has(x))
-    : invalidPositions;
-};
-
-const edgeHandlers = [
-  createEdgeHandler(square => square % 8 === 0, [-8, -7, 0, 1, 8, 9]),
-  createEdgeHandler(square => (square + 1) % 8 === 0, [-9, -8, -1, 0, 7, 8]),
-  createEdgeHandler(square => square < 8, [-1, 0, 1, 7, 8, 9]),
-  createEdgeHandler(square => square > 55, [-9, -8, -7, -1, 0, 1])
-];
+const adjacentPositions = [-9, -8, -7, -1, 0, 1, 7, 8, 9];
 
 const getInvalidSquares = square => {
-  return edgeHandlers
-    .reduce((acc, edgeHandler) => edgeHandler(square, acc), invalidForNonEdge)
-    .map(x => square + x);
+  const offBoardPositions = [
+    ...(square % 8 === 0 ? [-9, -1, 7] : []),
+    ...((square + 1) % 8 === 0 ? [-7, 1, 9] : []),
+    ...(square < 8 ? [-9, -8, -7] : []),
+    ...(square > 55 ? [7, 8, 9] : [])
+  ];
+
+  return adjacentPositions
+    .filter(position => !offBoardPositions.includes(position))
+    .map(position => square + position);
 };
 
 export default board => {
@@ -30,5 +22,5 @@ export default board => {
     return board.map((_, i) => i);
   }
 
-  return kings.map(king => getInvalidSquares(king.square)).flatMap(x => x);
+  return kings.flatMap(({ square }) => getInvalidSquares(square));
 };
