@@ -11,8 +11,8 @@
     "lint": "eslint .",
     "lint-fix": "eslint --fix .",
     "precommit": "lint-staged && yarn test",
-    "test": "ava --verbose",
-    "cover": "nyc ava --verbose"
+    "test": "ava",
+    "cover": "nyc ava"
   },
   "dependencies": {
     "lodash": "^4.17.11"
@@ -34,6 +34,9 @@
     "require": [
       "esm"
     ]
+  },
+  "nyc": {
+    "all": true
   },
   "lint-staged": {
     "*.js": [
