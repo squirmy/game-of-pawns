@@ -1,11 +1,12 @@
 import { flow, partial, times, range, shuffle } from 'lodash';
 import chooseARandomSquare from './choose-random-item';
 import placePiece from './place-piece/place-piece';
+import createBoard from './create-board';
 
 const placePieceRandomly = partial(placePiece, chooseARandomSquare);
 const placeOne = piece => times(1, () => partial(placePieceRandomly, piece));
 
-export default (chooseNumberOfPieces, board) => {
+export default chooseNumberOfPieces => {
   const placeN = (max, piece) =>
     times(chooseNumberOfPieces(range(0, max + 1)), () =>
       partial(placePieceRandomly, piece)
@@ -28,5 +29,5 @@ export default (chooseNumberOfPieces, board) => {
         placeN(2, 'b')
       ].flatMap(x => x)
     )
-  )(board);
+  )(createBoard('8/8/8/8/8/8/8/8'));
 };
