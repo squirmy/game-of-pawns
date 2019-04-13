@@ -2,7 +2,7 @@
 import { flow } from 'lodash';
 import generateChessboard from './generate-chessboard';
 import chooseARandomNumberOfPieces from './choose-a-random-item';
-import formatBoard from './format-board';
+import formatBoard from './format-board/format-board';
 
 const format = process.argv[2];
 

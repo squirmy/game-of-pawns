@@ -1,6 +1,6 @@
 import { EOL } from 'os';
 import test from 'ava';
-import createChessboard from './create-chessboard';
+import createChessboard from '../create-chessboard';
 import formatBoardAsGrid from './format-board-as-grid';
 
 test('can format an empty board as a grid', t => {

@@ -1,5 +1,5 @@
 import test from 'ava';
-import createChessboard from './create-chessboard';
+import createChessboard from '../create-chessboard';
 import placePiece from './place-piece';
 
 test('cannot place a black pawn in the 1st rank on the chess board', t => {

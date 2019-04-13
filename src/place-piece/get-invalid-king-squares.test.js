@@ -1,6 +1,6 @@
 import test from 'ava';
 import { range } from 'lodash';
-import createChessboard from './create-chessboard';
+import createChessboard from '../create-chessboard';
 import getInvalidKingSquares from './get-invalid-king-squares';
 
 test('cannot place a 3rd king', t => {

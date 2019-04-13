@@ -1,5 +1,5 @@
 import test from 'ava';
-import createChessboard from './create-chessboard';
+import createChessboard from '../create-chessboard';
 import formatBoardAsFen from './format-board-as-fen';
 
 test('can format an empty board as fen', t => {
