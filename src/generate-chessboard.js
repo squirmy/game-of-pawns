@@ -1,3 +1,4 @@
+import { flow } from 'lodash';
 import createChessboard from './create-chessboard';
 import placeKings from './place-kings';
 
@@ -7,10 +8,7 @@ const chooseARandomSquare = emptySquares => {
 };
 
 export default () => {
-  const board = placeKings(
-    chooseARandomSquare,
+  return flow(board => placeKings(chooseARandomSquare, board))(
     createChessboard('8/8/8/8/8/8/8/8')
   );
-
-  return board;
 };
