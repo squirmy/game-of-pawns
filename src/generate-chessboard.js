@@ -1,11 +1,7 @@
 import { flow, partial, times, range, shuffle } from 'lodash';
 import createChessboard from './create-chessboard';
+import chooseARandomSquare from './choose-a-random-item';
 import placePiece from './place-piece';
-
-const chooseARandomSquare = emptySquares => {
-  const rand = Math.floor(Math.random() * emptySquares.length);
-  return emptySquares[rand];
-};
 
 const placePieceRandomly = partial(placePiece, chooseARandomSquare);
 
