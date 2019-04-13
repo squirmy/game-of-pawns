@@ -6,7 +6,7 @@ import formatBoardAsGrid from './format-board-as-grid';
 test('can format an empty board as a grid', t => {
   const grid = formatBoardAsGrid(createChessboard('8/8/8/8/8/8/8/8'));
 
-  t.deepEqual(
+  t.is(
     grid,
     `.  .  .  .  .  .  .  .${EOL}` +
       `.  .  .  .  .  .  .  .${EOL}` +
@@ -24,7 +24,7 @@ test('can format a chessboard in the starting position as a grid', t => {
     createChessboard('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR')
   );
 
-  t.deepEqual(
+  t.is(
     grid,
     `r  n  b  q  k  b  n  r${EOL}` +
       `p  p  p  p  p  p  p  p${EOL}` +
