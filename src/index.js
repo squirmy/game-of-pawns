@@ -8,7 +8,9 @@ const chooseARandomNumberOfPieces = numberOfPieces => {
   return numberOfPieces[rand];
 };
 
+const format = process.argv[2];
+
 flow(
-  board => formatBoard(process.argv[2], board),
+  board => formatBoard(format, board),
   console.log
 )(generateChessboard(chooseARandomNumberOfPieces));
