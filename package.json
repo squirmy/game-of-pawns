@@ -11,7 +11,8 @@
     "lint": "eslint .",
     "lint-fix": "eslint --fix .",
     "precommit": "lint-staged && yarn test",
-    "test": "nyc ava --verbose"
+    "test": "ava --verbose",
+    "cover": "nyc ava --verbose"
   },
   "devDependencies": {
     "ava": "^1.4.1",
