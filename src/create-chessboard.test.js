@@ -34,3 +34,19 @@ test('should create a chessboard in the starting position', t => {
     'R', 'N', 'B', 'Q', 'K', 'B', 'N', 'R',
   ]);
 });
+
+test('should create a chessboard with a partially filled row', t => {
+  const chessboard = createChessboard('8/1p2P3/8/8/8/8/8/8');
+
+  // prettier-ignore
+  t.deepEqual(chessboard, [
+    '.', '.', '.', '.', '.', '.', '.', '.',
+    '.', 'p', '.', '.', 'P', '.', '.', '.',
+    '.', '.', '.', '.', '.', '.', '.', '.',
+    '.', '.', '.', '.', '.', '.', '.', '.',
+    '.', '.', '.', '.', '.', '.', '.', '.',
+    '.', '.', '.', '.', '.', '.', '.', '.',
+    '.', '.', '.', '.', '.', '.', '.', '.',
+    '.', '.', '.', '.', '.', '.', '.', '.',
+  ]);
+});
