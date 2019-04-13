@@ -5,7 +5,7 @@ import getInvalidKingSquares from './get-invalid-king-squares';
 
 test('cannot place a 3rd king', t => {
   const invalidSquares = getInvalidKingSquares(
-    createBoard('K7/8/8/8/8/8/8/7K')
+    createBoard('K7/8/8/8/8/8/8/7K'),
   );
 
   t.deepEqual(invalidSquares, range(64));
@@ -13,7 +13,7 @@ test('cannot place a 3rd king', t => {
 
 test('cannot place a king on an adjacent square (non edge)', t => {
   const invalidSquares = getInvalidKingSquares(
-    createBoard('8/1K6/8/8/8/8/8/8')
+    createBoard('8/1K6/8/8/8/8/8/8'),
   );
 
   t.deepEqual(invalidSquares, [0, 1, 2, 8, 9, 10, 16, 17, 18]);
@@ -33,7 +33,7 @@ test('cannot place a king on an adjacent square (right edge)', t => {
 
 test('cannot place a king on an adjacent square (top edge)', t => {
   const invalidSquares = getInvalidKingSquares(
-    createBoard('1K6/8/8/8/8/8/8/8')
+    createBoard('1K6/8/8/8/8/8/8/8'),
   );
 
   t.deepEqual(invalidSquares, [0, 1, 2, 8, 9, 10]);
@@ -41,7 +41,7 @@ test('cannot place a king on an adjacent square (top edge)', t => {
 
 test('cannot place a king on an adjacent square (bottom edge)', t => {
   const invalidSquares = getInvalidKingSquares(
-    createBoard('8/8/8/8/8/8/8/1K6')
+    createBoard('8/8/8/8/8/8/8/1K6'),
   );
 
   t.deepEqual(invalidSquares, [48, 49, 50, 56, 57, 58]);

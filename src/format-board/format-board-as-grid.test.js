@@ -15,13 +15,13 @@ test('can format an empty board as a grid', t => {
       `.  .  .  .  .  .  .  .${EOL}` +
       `.  .  .  .  .  .  .  .${EOL}` +
       `.  .  .  .  .  .  .  .${EOL}` +
-      `.  .  .  .  .  .  .  .`
+      `.  .  .  .  .  .  .  .`,
   );
 });
 
 test('can format a chessboard in the starting position as a grid', t => {
   const grid = formatBoardAsGrid(
-    createBoard('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR')
+    createBoard('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR'),
   );
 
   t.is(
@@ -33,6 +33,6 @@ test('can format a chessboard in the starting position as a grid', t => {
       `.  .  .  .  .  .  .  .${EOL}` +
       `.  .  .  .  .  .  .  .${EOL}` +
       `P  P  P  P  P  P  P  P${EOL}` +
-      `R  N  B  Q  K  B  N  R`
+      `R  N  B  Q  K  B  N  R`,
   );
 });

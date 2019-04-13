@@ -35,7 +35,7 @@ test('should generate a board with the maximum of each piece of each color', t =
     N: 2,
     n: 2,
     B: 2,
-    b: 2
+    b: 2,
   });
 });
 
@@ -45,13 +45,13 @@ test('should generate a board with the minimum of each piece of each color', t =
   t.deepEqual(getPieceCount(board), {
     '.': 62,
     K: 1,
-    k: 1
+    k: 1,
   });
 });
 
 test('should generate a board with the 1 of each piece of each color', t => {
   const board = createRandomBoard(numberOfPiecesChoices =>
-    numberOfPiecesChoices.find(x => x === 1)
+    numberOfPiecesChoices.find(x => x === 1),
   );
 
   t.deepEqual(getPieceCount(board), {
@@ -67,6 +67,6 @@ test('should generate a board with the 1 of each piece of each color', t => {
     N: 1,
     n: 1,
     B: 1,
-    b: 1
+    b: 1,
   });
 });

@@ -9,7 +9,7 @@ const placeOne = piece => times(1, () => partial(placePieceRandomly, piece));
 export default chooseNumberOfPieces => {
   const placeN = (max, piece) =>
     times(chooseNumberOfPieces(range(0, max + 1)), () =>
-      partial(placePieceRandomly, piece)
+      partial(placePieceRandomly, piece),
     );
 
   return flow(
@@ -26,8 +26,8 @@ export default chooseNumberOfPieces => {
         placeN(2, 'N'),
         placeN(2, 'n'),
         placeN(2, 'B'),
-        placeN(2, 'b')
-      ].flatMap(x => x)
-    )
+        placeN(2, 'b'),
+      ].flatMap(x => x),
+    ),
   )(createBoard('8/8/8/8/8/8/8/8'));
 };

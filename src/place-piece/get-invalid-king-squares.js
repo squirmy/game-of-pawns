@@ -5,7 +5,7 @@ const getInvalidSquares = square => {
     ...(square % 8 === 0 ? [-9, -1, 7] : []),
     ...((square + 1) % 8 === 0 ? [-7, 1, 9] : []),
     ...(square < 8 ? [-9, -8, -7] : []),
-    ...(square > 55 ? [7, 8, 9] : [])
+    ...(square > 55 ? [7, 8, 9] : []),
   ];
 
   return adjacentPositions

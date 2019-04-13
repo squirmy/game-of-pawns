@@ -9,7 +9,7 @@ test('can format an empty board as fen', t => {
 
 test('can format a chessboard in the starting position as a grid', t => {
   const fen = formatBoardAsFen(
-    createBoard('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR')
+    createBoard('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR'),
   );
 
   t.is(fen, 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w - - 0 1');

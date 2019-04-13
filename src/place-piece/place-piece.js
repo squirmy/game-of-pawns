@@ -6,7 +6,7 @@ const getEmptySquares = board =>
   board.reduce(
     (emptySquares, square, i) =>
       square === '.' ? [...emptySquares, i] : emptySquares,
-    []
+    [],
   );
 
 export default (chooseEmptySquare, piece, board) => {
@@ -18,7 +18,7 @@ export default (chooseEmptySquare, piece, board) => {
 
   const invalidSquares = [
     ...(piece.toLowerCase() === 'p' ? getInvalidPawnSquares(piece) : []),
-    ...(piece.toLowerCase() === 'k' ? getInvalidKingSquares(board) : [])
+    ...(piece.toLowerCase() === 'k' ? getInvalidKingSquares(board) : []),
   ];
 
   const removeInvalidSquares = emptySquares =>
@@ -28,6 +28,6 @@ export default (chooseEmptySquare, piece, board) => {
     getEmptySquares,
     removeInvalidSquares,
     chooseEmptySquare,
-    placePiece
+    placePiece,
   )(board);
 };
