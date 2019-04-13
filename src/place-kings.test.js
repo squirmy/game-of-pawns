@@ -8,5 +8,5 @@ test('places two kings on the chess board', t => {
     createChessboard('8/8/8/8/8/8/8/8')
   );
 
-  t.deepEqual(board, createChessboard('Kk6/8/8/8/8/8/8/8'));
+  t.deepEqual(board, createChessboard('K1k5/8/8/8/8/8/8/8'));
 });

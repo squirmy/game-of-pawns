@@ -1,4 +1,5 @@
 import { flow, partial } from 'lodash';
+import getInvalidKingSquares from './get-invalid-king-squares';
 
 const getEmptySquares = board =>
   board.reduce(
@@ -14,8 +15,12 @@ const placePieceOnEmptySquare = (chooseEmptySquare, piece, board) => {
     return newBoard;
   };
 
+  const removeInvalidSquares = emptySquares =>
+    emptySquares.filter(x => !new Set(getInvalidKingSquares(board)).has(x));
+
   return flow(
     getEmptySquares,
+    removeInvalidSquares,
     chooseEmptySquare,
     placePiece
   )(board);
