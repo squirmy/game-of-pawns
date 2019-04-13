@@ -1,6 +1,5 @@
 import { flow, partial, times } from 'lodash';
 import createChessboard from './create-chessboard';
-import placeKings from './place-kings';
 import placePiece from './place-piece';
 
 const chooseARandomSquare = emptySquares => {
@@ -10,7 +9,8 @@ const chooseARandomSquare = emptySquares => {
 
 export default () => {
   const pieces = [
-    partial(placeKings, chooseARandomSquare),
+    partial(placePiece, chooseARandomSquare, 'K'),
+    partial(placePiece, chooseARandomSquare, 'k'),
     times(8, () => partial(placePiece, chooseARandomSquare, 'P')),
     times(8, () => partial(placePiece, chooseARandomSquare, 'p'))
   ].flatMap(x => x);

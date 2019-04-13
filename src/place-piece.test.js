@@ -51,3 +51,13 @@ test('places a pawn next to another pawn on the chess board', t => {
 
   t.deepEqual(board, createChessboard('pp6/8/8/8/8/8/8/8'));
 });
+
+test('places a king as close as possible to the other king on the chess board', t => {
+  const board = placePiece(
+    emptySquares => Math.min(...emptySquares),
+    'k',
+    createChessboard('K7/8/8/8/8/8/8/8')
+  );
+
+  t.deepEqual(board, createChessboard('K1k5/8/8/8/8/8/8/8'));
+});
