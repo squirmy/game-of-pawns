@@ -5,7 +5,7 @@
   "main": "index.js",
   "repository": "https://github.com/squirmy/game-of-pawns",
   "author": "Adam Woods <adam.tomato@gmail.com>",
-  "license": "MIT",
+  "license": "WTFPL",
   "private": false,
   "scripts": {
     "lint": "eslint .",
@@ -13,6 +13,9 @@
     "precommit": "lint-staged && yarn test",
     "test": "ava --verbose",
     "cover": "nyc ava --verbose"
+  },
+  "dependencies": {
+    "lodash": "^4.17.11"
   },
   "devDependencies": {
     "ava": "^1.4.1",
@@ -42,8 +45,5 @@
     "hooks": {
       "pre-commit": "yarn run precommit"
     }
-  },
-  "dependencies": {
-    "lodash": "^4.17.11"
   }
 }
