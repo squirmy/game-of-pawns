@@ -6,7 +6,7 @@ export default (format, board) => {
     return formatBoardAsGrid(board);
   }
 
-  if (format === '--fen') {
+  if (format === '--fen' || format === undefined) {
     return formatBoardAsFen(board);
   }
 
