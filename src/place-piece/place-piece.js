@@ -9,17 +9,6 @@ const getEmptySquares = board =>
     []
   );
 
-const getInvalidSquares = (piece, board) => {
-  switch (piece.toLowerCase()) {
-    case 'p':
-      return getInvalidPawnSquares(piece);
-    case 'k':
-      return getInvalidKingSquares(board);
-    default:
-      return [];
-  }
-};
-
 export default (chooseEmptySquare, piece, board) => {
   const placePiece = square => {
     const newBoard = [...board];
@@ -27,8 +16,13 @@ export default (chooseEmptySquare, piece, board) => {
     return newBoard;
   };
 
+  const invalidSquares = [
+    ...(piece.toLowerCase() === 'p' ? getInvalidPawnSquares(piece) : []),
+    ...(piece.toLowerCase() === 'k' ? getInvalidKingSquares(board) : [])
+  ];
+
   const removeInvalidSquares = emptySquares =>
-    emptySquares.filter(x => !new Set(getInvalidSquares(piece, board)).has(x));
+    emptySquares.filter(square => !invalidSquares.includes(square));
 
   return flow(
     getEmptySquares,
