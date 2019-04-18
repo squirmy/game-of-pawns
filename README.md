@@ -30,3 +30,7 @@ b  .  .  .  P  N  .  .
 p  .  k  P  .  .  .  K
 .  .  N  .  .  .  n  R
 ```
+
+`./go.sh --html`
+
+You'll see.
