@@ -6,5 +6,5 @@ if [ "$1" == "--html" ]
 then
   yarn run www
 else
-  node -r esm src/index.js $@
+  node -r esm src/app/index.js $@
 fi

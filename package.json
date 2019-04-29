@@ -13,7 +13,7 @@
     "precommit": "lint-staged && yarn test",
     "test": "ava",
     "cover": "c8 ava",
-    "www": "parcel ./www/index.html --open"
+    "www": "parcel ./src/www/index.html --open"
   },
   "dependencies": {
     "lodash": "^4.17.11",

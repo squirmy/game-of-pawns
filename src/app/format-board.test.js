@@ -1,6 +1,6 @@
 import { EOL } from 'os';
 import test from 'ava';
-import createBoard from '../create-board';
+import createBoard from '../lib/create-board';
 import formatBoard from './format-board';
 
 test('grid format formats as grid', t => {

@@ -1,5 +1,5 @@
-import formatBoardAsGrid from './format-board-as-grid';
-import formatBoardAsFen from './format-board-as-fen';
+import formatBoardAsGrid from '../lib/format-board/format-board-as-grid';
+import formatBoardAsFen from '../lib/format-board/format-board-as-fen';
 
 export default (format, board) => {
   if (format === '--grid') {

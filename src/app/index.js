@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
-import createRandomBoard from './create-random-board';
-import formatBoard from './format-board/format-board';
-import chooseARandomNumberOfPieces from './choose-random-item';
+import createRandomBoard from '../lib/create-random-board';
+import chooseARandomNumberOfPieces from '../lib/choose-random-item';
+import formatBoard from './format-board';
 
 const format = process.argv[2];
 
