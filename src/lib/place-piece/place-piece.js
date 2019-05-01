@@ -10,11 +10,7 @@ const getEmptySquares = board =>
   );
 
 export default (chooseEmptySquare, piece, board) => {
-  const placePiece = square => {
-    const newBoard = [...board];
-    newBoard[square] = piece;
-    return newBoard;
-  };
+  const placePiece = square => Object.assign([...board], { [square]: piece });
 
   const invalidSquares = [
     ...(piece.toLowerCase() === 'p' ? getInvalidPawnSquares(piece) : []),
