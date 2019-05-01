@@ -3,5 +3,5 @@ import { chunk } from 'lodash';
 
 export default board =>
   chunk(board, 8)
-    .map(row => row.join('  '))
+    .map(rank => rank.join('  '))
     .join(EOL);
