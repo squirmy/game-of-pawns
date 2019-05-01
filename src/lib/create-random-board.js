@@ -11,7 +11,7 @@ const placePieceRandomly = (numberOfPieces, piece) =>
 export default chooseNumberOfPieces => {
   const placeOne = piece => placePieceRandomly(1, piece);
   const placeUpTo = (max, piece) => {
-    return placePieceRandomly(chooseNumberOfPieces(range(0, max + 1)), piece);
+    return placePieceRandomly(chooseNumberOfPieces(range(max + 1)), piece);
   };
 
   const piecePlacements = [
