@@ -16,7 +16,7 @@
     "www": "parcel ./src/www/index.html --open"
   },
   "dependencies": {
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.19",
     "normalize.css": "^8.0.1"
   },
   "devDependencies": {
